@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .number-style{
+        border: none;
+        background-color: gray;
+        color: white;
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+        font-size: 17px;
+        margin-right: 4px;
+
+      }
+      .math-style{
+        border: none;
+        background-color: orange;
+        color: white;
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+        font-size: 17px;
+        margin-right: 4px;
+        
+
+      }
+      .result-style{
+        font-size: 20px;
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <p class="js-result result-style">0</p>
+    <p>
+    <button onclick="
+      ubdateCalculation('1');
+      " class="number-style">1</button>
+    <button onclick="
+       ubdateCalculation('2');
+      
+    " class="number-style">2</button>
+    <button onclick="
+        ubdateCalculation('3');
+    " class="number-style">3</button>
+    <button onclick="
+    ubdateCalculation(' + ');
+   " class="math-style">+</button>
+   </p>
+   <p>
+    <button onclick="
+    
+    ubdateCalculation('4');
+    " class="number-style">4</button>
+      
+    <button onclick="
+    ubdateCalculation('5');
+    " class="number-style">5</button>
+
+
+    <button onclick="
+    ubdateCalculation('6');
+    " class="number-style">6</button>
+
+     <button onclick="
+     ubdateCalculation(' - ');
+    " class="math-style">-</button>
+   </p>
+   <p>
+    <button onclick="
+     ubdateCalculation('7');
+   
+      " class="number-style">7</button>
+    <button onclick="
+     ubdateCalculation('8');
+    " class="number-style">8</button>
+    <button onclick="
+    ubdateCalculation('9');
+    " class="number-style">9</button>
+
+      <button onclick="
+      ubdateCalculation(' * ');
+      " class="math-style">*</button>
+
+   </p>
+   <p>
+<button  onclick="
+ubdateCalculation('0');
+" class="number-style">0</button>
+<button  onclick="
+ubdateCalculation(' . ');
+" class="number-style">.</button>
+<button onclick="
+ubdateCalculation(' = ');
+" class="number-style">=</button>
+ <button onclick="
+ ubdateCalculation(' / ');
+" class="math-style">/</button>
+
+   </p>
+
+   
+   
+    <button onclick="
+     ubdateCalculation('c');
+     localStorage.removeItem('calculation');
+
+    " class="number-style">clear</button>
+    <script>
+      let calculation = localStorage.getItem('calculation')||'';
+
+      function ubdateCalculation(number){
+        if (number==='1'){
+          calculation+='1';
+        }else if (number === '2'){
+          calculation+='2';
+        }else if(number==='3'){
+          calculation+='3';
+       }else if( number==='4'){
+        calculation+='4';
+       }else if( number==='5'){
+        calculation+='5';
+       }else if( number==='6'){
+        calculation+='6';
+       }else if( number==='7'){
+        calculation+='7';
+       }else if( number==='8'){
+        calculation+='8';
+       }else if( number==='9'){
+        calculation+='9';
+       }else if( number==='0'){
+        calculation+='0';
+       }else if( number===' . '){
+        calculation+=' . ';
+       }else if( number===' + '){
+        calculation+=' + ';
+       } else if( number===' - '){
+        calculation+=' - ';
+       }else if( number===' * '){
+        calculation+=' * ';
+       }else if( number===' / '){
+        calculation+=' / ';
+       }else if( number==='c'){
+        calculation='';
+       }else if( number===' = '){
+        eval(calculation);
+        calculation = eval(calculation);
+       } 
+       
+        localStorage.setItem('calculation' , '');
+        console.log(calculation);
+        document.querySelector('.js-result').innerHTML=`${calculation}`;
+      }
+     
+    </script>
+  </body>
+</html>
